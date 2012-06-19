@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Page curl</title>
+  </head>
+
+  <body>
+<ul class="box" markdown="1">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+  <style>
+ul.box {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  list-style: none;
+  li {
+    position: relative;
+    float: left;
+    width: 250px;
+    height: 150px;
+    padding: 0;
+    border: 1px solid #efefef;
+    margin: 0 30px 30px 0;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset; 
+    &:before,
+    &:after {
+      content: '';
+      z-index: -1;
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      width: 70%;
+      max-width: 300px;
+      max-height: 100px;
+      height: 55%;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      transform: skew(-15deg) rotate(-6deg); 
+    }
+    &:after {
+      left: auto;
+      right: 10px;
+      transform: skew(15deg) rotate(6deg); 
+    }
+  }
+}
+
+body {
+  background: url(http://matthamm.com/images/noise.png); 
+  padding: 20px;
+}
+
+h1 {
+  font: normal 36px Georgia, Serif;
+  margin: 0 0 20px 0;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+}
+
+  
+    </style>
+
+  </body>
+</html>
