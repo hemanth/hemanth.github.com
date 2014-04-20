@@ -1,0 +1,68 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer-jsonp/polymer-jsonp.html"> 
+
+<!--
+Gets info from IMDB for the given movie name.
+
+##### Example
+
+    <im-db movie="Star Wars: Episode II - Attack of the Clones"></im-db>
+
+@element im-db
+@blurb Get info about the given movie from IMDB.
+@status stable
+@homepage http://github.com/hemanth/im-db
+-->
+<polymer-element name="im-db" attributes="movie">
+
+  <template>
+
+    <link href="im-db.css" rel="stylesheet" />
+
+    <polymer-jsonp id="ajax" auto url="http://www.omdbapi.com/?t={{movie}}&callback=" response="{{response}}"></polymer-jsonp>
+
+    <content>
+      <div class="info">
+         <img src="{{response.Poster}}" />
+         
+         <p>{{response.Title}}</p>
+        
+         <p>IMDB rating: {{response.imdbRating}}</p>
+
+         <p>Released: {{response.Released}}</p>
+
+         <p>Rating: {{response.Rated}}</p>
+
+         <p>Run Time: {{response.Runtime}}
+
+         <p>Genre: {{response.Genre}}<p>
+
+         <p>Director: {{response.Director}}</p>
+
+         <p>Writers: {{response.Writer}}</p>
+
+         <p>Actors: {{response.Actors}} </p>
+        
+         <p>Plot: {{response.Plot}}</p>
+        
+         <p>The movie is in {{response.Language}} language and was shot at {{response.Country}} won {{response.Awards}}</p> 
+      </div>
+    </content>
+
+  </template>
+
+  <script>
+
+    Polymer({
+
+      ready: function() {
+        this.$.ajax.addEventListener('polymer-response',function(data){
+            window.data = data;
+            this.response = data.detail.response;
+        });
+      }
+    });
+
+  </script>
+
+</polymer-element>
