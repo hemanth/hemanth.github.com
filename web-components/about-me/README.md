@@ -1,7 +1,7 @@
 im-db element
 ================
 
-See the [component page](http://h3manth.com/demo/custom-elements/about-me/) for more information.
+See the [component page](http://hemanth.github.io/web-components/about-me/index.html) for more information.
 
 __TODO:__
 
