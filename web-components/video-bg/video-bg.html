@@ -19,14 +19,17 @@ Set a video as your HTML background.
         <link href="bgvideo.css" rel="stylesheet"/>
         <video autoplay loop muted={{muted}} id="bgvid">
           <template repeat="{{src in srcs}}">
-            <source src={{src}} type="{{src.substr(src.lastIndexOf('.') + 1)}}">
+            <source src={{src}} type="{{src|getType}}">
           </template>
         </video>
     </template>
 
     <script>
         Polymer('video-bg', {
-          created: function() {this.srcs=[];}
+          created: function() {this.srcs=[];},
+          getType: function(src){
+            return 'video/'+src.substr(src.lastIndexOf('.') + 1)
+          }
         });
     </script>
 
